@@ -1,0 +1,478 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TREK A TOUR Design System - Adventure & Travel Theme
+All colors MUST be HSL format. Beautiful gradients and animations defined here.
+*/
+
+/* Mobile Optimization Styles */
+@media (max-width: 768px) {
+  /* Hero Section Mobile Optimizations */
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero-description {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    padding: 0 1rem !important;
+  }
+  
+  /* Trip Cards Mobile Layout */
+  .trip-card {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .trip-card-image {
+    height: 200px !important;
+  }
+  
+  /* Navigation Mobile Improvements */
+  .mobile-menu {
+    max-height: calc(100vh - 80px) !important;
+    overflow-y: auto !important;
+  }
+  
+  /* Form Elements Mobile */
+  .mobile-form-input {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: 12px !important;
+  }
+  
+  /* Button Mobile Sizing */
+  .mobile-button {
+    min-height: 44px !important; /* Touch target size */
+    padding: 12px 20px !important;
+  }
+  
+  /* Horizontal Scroll Mobile */
+  .horizontal-scroll {
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+  }
+  
+  /* Modal Mobile Adjustments */
+  .mobile-modal {
+    margin: 1rem !important;
+    max-height: calc(100vh - 2rem) !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .touch-target {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  .hover-effect:hover {
+    transform: none !important;
+  }
+}
+
+/* Global Button Visibility Fixes */
+@layer components {
+  .btn-visible {
+    @apply opacity-100 !important;
+    @apply visible !important;
+    @apply pointer-events-auto !important;
+    @apply z-10 !important;
+  }
+  
+  /* Fix for buttons with low contrast */
+  button {
+    @apply btn-visible;
+    min-height: 36px !important;
+    min-width: fit-content !important;
+    @apply shadow-sm;
+    @apply border border-gray-200;
+  }
+  
+  /* Ensure all interactive elements are visible */
+  button, 
+  [role="button"], 
+  .cursor-pointer,
+  input[type="button"],
+  input[type="submit"] {
+    @apply btn-visible;
+  }
+  
+  /* Fix for buttons on colored backgrounds */
+  button[class*="bg-white"],
+  button[class*="bg-gray"] {
+    @apply text-gray-900 !important;
+    @apply border-gray-300 !important;
+  }
+  
+  /* Fix for buttons on dark backgrounds */
+  button[class*="text-white"] {
+    @apply bg-black/20 !important;
+    @apply backdrop-blur-sm !important;
+    @apply border-white/30 !important;
+  }
+  
+  /* Admin buttons should always be visible */
+  button[class*="admin"],
+  .admin-button {
+    @apply bg-orange-600 !important;
+    @apply text-white !important;
+    @apply border-orange-700 !important;
+    @apply hover:bg-orange-700 !important;
+  }
+  
+  /* Navigation buttons */
+  nav button,
+  .nav-button {
+    @apply bg-white !important;
+    @apply text-gray-900 !important;
+    @apply border-gray-300 !important;
+    @apply shadow-md !important;
+  }
+  
+  /* Hero section buttons */
+  .hero-section button {
+    @apply bg-black/30 !important;
+    @apply text-white !important;
+    @apply border-white/50 !important;
+    @apply backdrop-blur-sm !important;
+    @apply hover:bg-black/50 !important;
+  }
+}
+
+@layer base {
+  :root {
+    /* Core Background & Text */
+    --background: 0 0% 100%;
+    --foreground: 210 15% 15%;
+
+    /* Card Components */
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 15%;
+
+    /* Popover Components */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 15%;
+
+    /* Adventure Orange Primary - Main brand color */
+    --primary: 15 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 15 85% 65%;
+
+    /* Mountain Blue Secondary */
+    --secondary: 210 50% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Subtle accent colors */
+    --muted: 210 15% 96%;
+    --muted-foreground: 210 15% 45%;
+
+    /* Success green for bookings */
+    --accent: 120 45% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Error/warning states */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border & Input styling */
+    --border: 210 15% 88%;
+    --input: 210 15% 94%;
+    --ring: 15 85% 55%;
+
+    /* Adventure gradient backgrounds */
+    --gradient-hero: linear-gradient(135deg, hsl(15 85% 55%), hsl(210 50% 40%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 15% 98%));
+    --gradient-adventure: linear-gradient(135deg, hsl(15 85% 55%) 0%, hsl(25 80% 60%) 50%, hsl(210 50% 40%) 100%);
+    
+    /* Elevation shadows with brand colors */
+    --shadow-soft: 0 2px 8px hsl(210 15% 15% / 0.08);
+    --shadow-medium: 0 4px 16px hsl(210 15% 15% / 0.12);
+    --shadow-strong: 0 8px 32px hsl(210 15% 15% / 0.16);
+    --shadow-glow: 0 0 20px hsl(15 85% 55% / 0.3);
+
+    /* Animation transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode backgrounds */
+    --background: 210 15% 8%;
+    --foreground: 210 15% 95%;
+
+    /* Dark cards */
+    --card: 210 15% 12%;
+    --card-foreground: 210 15% 95%;
+
+    /* Dark popovers */
+    --popover: 210 15% 12%;
+    --popover-foreground: 210 15% 95%;
+
+    /* Adventure Orange remains vibrant in dark */
+    --primary: 15 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 15 85% 65%;
+
+    /* Darker mountain blue */
+    --secondary: 210 50% 30%;
+    --secondary-foreground: 210 15% 95%;
+
+    /* Dark muted colors */
+    --muted: 210 15% 18%;
+    --muted-foreground: 210 15% 65%;
+
+    /* Accent remains green */
+    --accent: 120 45% 45%;
+    --accent-foreground: 210 15% 95%;
+
+    /* Error states for dark */
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 210 15% 95%;
+
+    /* Dark borders */
+    --border: 210 15% 20%;
+    --input: 210 15% 18%;
+    --ring: 15 85% 55%;
+
+    /* Dark gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(15 85% 45%), hsl(210 50% 25%));
+    --gradient-card: linear-gradient(145deg, hsl(210 15% 12%), hsl(210 15% 16%));
+    --gradient-adventure: linear-gradient(135deg, hsl(15 85% 45%) 0%, hsl(25 80% 50%) 50%, hsl(210 50% 25%) 100%);
+    
+    /* Dark shadows */
+    --shadow-soft: 0 2px 8px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 16px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 8px 32px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 20px hsl(15 85% 55% / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Horizontal scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Fix for horizontal scroll container - prevent half-cut cards */
+.horizontal-scroll {
+  padding-right: 2rem !important; /* Add end padding for mobile */
+  padding-left: 0.5rem !important; /* Small start padding */
+}
+
+@media (min-width: 768px) {
+  .horizontal-scroll {
+    padding-right: 3rem !important; /* More padding for desktop */
+    padding-left: 1rem !important;
+  }
+}
+
+/* Fix trip card dimensions for consistency across browsers */
+.trip-card {
+  min-height: 400px !important; /* Fixed height for consistency */
+  max-height: 400px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Ensure card image has consistent aspect ratio */
+.trip-card .h-48 {
+  height: 12rem !important; /* Fixed height: 192px */
+  min-height: 12rem !important;
+  max-height: 12rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* Fix card content area */
+.trip-card .p-6 {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+/* Browser-specific fixes for Safari */
+@supports (-webkit-appearance: none) {
+  .trip-card {
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+  }
+  
+  .trip-card .h-48 {
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+  }
+}
+
+button.orange-book-button,
+.orange-book-button,
+button.orange-book-button:not(:hover) {
+  background-color: #ea580c !important;
+  background: #ea580c !important;
+  color: white !important;
+  border: none !important;
+  border-color: #ea580c !important;
+}
+
+button.orange-book-button:hover,
+.orange-book-button:hover {
+  background-color: #c2410c !important;
+  background: #c2410c !important;
+}
+
+/* Swipe functionality styles for horizontal scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar-track {
+  display: none !important;
+  background: transparent !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  display: none !important;
+  background: transparent !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar-corner {
+  display: none !important;
+  background: transparent !important;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+.select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Disable animation during user interaction */
+.horizontal-scroll:active,
+.horizontal-scroll:focus,
+.horizontal-scroll.cursor-grabbing {
+  animation-play-state: paused !important;
+}
+
+/* Smooth scroll behavior for better UX */
+.horizontal-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fix scroll snap for better card alignment */
+.horizontal-scroll {
+  scroll-snap-type: x mandatory;
+}
+
+.trip-card {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* CRITICAL FIX: Horizontal scroll end padding - MUST BE AT END */
+.horizontal-scroll {
+  padding-right: 4rem !important;
+  padding-left: 1rem !important;
+}
+
+/* CRITICAL FIX: Trip card consistency - MUST BE AT END */
+.horizontal-scroll .trip-card {
+  min-height: 400px !important;
+  max-height: 400px !important;
+  width: 320px !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.horizontal-scroll .trip-card.w-72,
+.horizontal-scroll .trip-card.sm\:w-80,
+.horizontal-scroll .trip-card.md\:w-80 {
+  width: 320px !important;
+}
+
+/* CRITICAL FIX: Card image height - MUST BE AT END */
+.trip-card .h-48 {
+  height: 192px !important;
+  min-height: 192px !important;
+  max-height: 192px !important;
+  flex-shrink: 0 !important;
+}
+
+/* CRITICAL FIX: Card content flex - MUST BE AT END */
+.trip-card .p-6 {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Trek A Tour - Adventure Travel",
+  "short_name": "Trek A Tour",
+  "description": "Discover breathtaking landscapes and conquer majestic peaks with India's most trusted adventure travel company",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["travel", "lifestyle", "sports"],
+  "screenshots": [
+    {
+      "src": "/lovable-uploads/3fc5d819-5b8c-4f31-83f6-aebb7a9d46ba.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}

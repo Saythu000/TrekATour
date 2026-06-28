@@ -1,0 +1,69 @@
+/* Mobile Optimization Styles */
+
+/* Ensure proper viewport handling */
+@media (max-width: 768px) {
+  /* Hero Section Mobile Optimizations */
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero-description {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    padding: 0 1rem !important;
+  }
+  
+  /* Trip Cards Mobile Layout */
+  .trip-card {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .trip-card-image {
+    height: 200px !important;
+  }
+  
+  /* Navigation Mobile Improvements */
+  .mobile-menu {
+    max-height: calc(100vh - 80px) !important;
+    overflow-y: auto !important;
+  }
+  
+  /* Form Elements Mobile */
+  .mobile-form-input {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: 12px !important;
+  }
+  
+  /* Button Mobile Sizing */
+  .mobile-button {
+    min-height: 44px !important; /* Touch target size */
+    padding: 12px 20px !important;
+  }
+  
+  /* Horizontal Scroll Mobile */
+  .horizontal-scroll {
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+  }
+  
+  /* Modal Mobile Adjustments */
+  .mobile-modal {
+    margin: 1rem !important;
+    max-height: calc(100vh - 2rem) !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .touch-target {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  .hover-effect:hover {
+    transform: none !important;
+  }
+}

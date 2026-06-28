@@ -1,0 +1,23 @@
+RewriteEngine On
+
+# API routing
+RewriteRule ^health$ health.php [L]
+RewriteRule ^trips$ trips.php [L]
+RewriteRule ^trips/category/([^/]+)$ category-trips.php?category=$1 [L,QSA]
+RewriteRule ^trips/recommended/all$ recommended.php [L]
+RewriteRule ^trips/([a-zA-Z0-9\-\_\.]+)$ trip-detail.php [L]
+RewriteRule ^recommendations-content$ recommendations-content.php [L]
+RewriteRule ^content/([^/]+)/([^/]+)$ content.php?pageType=$1&contentKey=$2 [L,QSA]
+RewriteRule ^bookings$ bookings.php [L]
+RewriteRule ^reviews$ reviews.php [L]
+RewriteRule ^contact$ contact.php [L]
+RewriteRule ^upload$ upload.php [L]
+RewriteRule ^admin/login$ admin.php [L]
+RewriteRule ^admin/content$ admin.php [L]
+RewriteRule ^admin/recommendations-content$ admin.php [L]
+RewriteRule ^admin/reviews$ admin-reviews.php [L]
+RewriteRule ^admin/reviews/(.*)$ admin-reviews.php [L]
+RewriteRule ^admin/contact$ admin-contact.php [L]
+RewriteRule ^admin/trips/reorder-recommendations$ admin.php [L]
+RewriteRule ^admin/trips/recommendation$ admin.php [L]
+RewriteRule ^admin/(.*)$ admin.php [L]

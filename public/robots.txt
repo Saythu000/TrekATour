@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow admin pages
+Disallow: /admin
+
+# Sitemap location
+Sitemap: https://trekatour.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
